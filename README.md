@@ -6,7 +6,7 @@ This guide outlines the changes needed for iOS 14 support.
 
 ## Prerequisites
 
-Add [GMA](https://developers.google.com/admob/ios/download/) to Podfile.
+Add [GMA](https://developers.google.com/admob/ios/quick-start) to Podfile.
 Google Mobile Ads SDK 7.64.0 or higher
 
 ```bash
