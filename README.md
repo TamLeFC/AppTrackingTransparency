@@ -33,9 +33,9 @@ import UIKit
 
 class Tracking {
     static func requestIDFA(parent: UIViewController) {
-        if isPremium {
-            return
-        }
+//        if isPremium {
+//            return
+//        }
         if #available(iOS 14, *) {
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
                 switch status {
