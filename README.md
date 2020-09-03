@@ -51,8 +51,8 @@ import AdSupport
 import UIKit
 
 class Tracking {
-    static func requestIDFA(parent: UIViewController) {
-//        if isPremium {
+    static func requestIDFA(onUserDenied: (() -> Void)? = nil) {
+//        if !AdsUtils.shouldShowAd {
 //            return
 //        }
         if #available(iOS 14, *) {
@@ -60,7 +60,7 @@ class Tracking {
                 switch status {
                 case .denied:
                     print("Tracking denied. Show dialog setting now")
-                    showDialogGoToTrackingSetting(parent: parent)
+                    onUserDenied?()
                 case .notDetermined:
                     print("Tracking notDetermined")
                 case .restricted:
@@ -73,7 +73,7 @@ class Tracking {
             })
         }
     }
-    private static func showDialogGoToTrackingSetting(parent: UIViewController) {
+    static func showDialogGoToTrackingSetting(parent: UIViewController) {
         let title = Bundle.main.object(forInfoDictionaryKey: "NSUserTrackingUsageTitle") as? String ?? ""
         let message = Bundle.main.object(forInfoDictionaryKey: "NSUserTrackingUsageDescription") as? String ?? ""
         
@@ -95,7 +95,11 @@ Last call function in Main Viewcontroller
 ```swift
 override func viewDidLoad() {
     super.viewDidLoad()
-    Tracking.requestIDFA(parent: self)
+    Tracking.requestIDFA(onUserDenied: {
+            DispatchQueue.main.async {
+                Tracking.showDialogGoToTrackingSetting(parent: self)
+            }
+        })
 }
 ```
 
