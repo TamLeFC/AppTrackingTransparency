@@ -50,7 +50,7 @@ import AppTrackingTransparency
 import AdSupport
 import UIKit
 
-class Tracking {
+class AdsTrackingUtils {
     static func requestIDFA(onUserDenied: (() -> Void)? = nil) {
 //        if !AdsUtils.shouldShowAd {
 //            return
@@ -95,7 +95,7 @@ Last call function in Main Viewcontroller
 ```swift
 override func viewDidLoad() {
     super.viewDidLoad()
-    Tracking.requestIDFA(onUserDenied: {
+    AdsTrackingUtils.requestIDFA(onUserDenied: {
             DispatchQueue.main.async {
                 Tracking.showDialogGoToTrackingSetting(parent: self)
             }
