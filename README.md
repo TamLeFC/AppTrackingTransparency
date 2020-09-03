@@ -39,7 +39,8 @@ func requestIDFA() {
   })
 }
 ```
-![Screenshot](DialogTracking.png)
+
+<img src="DialogTracking.png" width="300">
 
 The problem is that the ATTrackingManager only shows a dialog once. If the user refuses you will lose a significant amount of revenue. You should show a dialog asking the user to access Settings to enable tracking when the user denies the first time.<br/>
 And we have a complete class
@@ -88,7 +89,7 @@ class Tracking {
 }
 ```
 
-![Screenshot](Tracking.png)
+<img src="Tracking.png" width="300">
 
 Last call function in Main Viewcontroller
 ```swift
