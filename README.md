@@ -26,6 +26,24 @@ Google Mobile Ads SDK 7.64.0 or higher
 
 ## Usage
 
+Now you can request tracking ads as follows:
+
+```swift
+import AppTrackingTransparency
+import AdSupport
+...
+func requestIDFA() {
+  ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+    // Tracking authorization completed. Start loading ads here.
+    // loadAd()
+  })
+}
+```
+![Screenshot](Tracking.png)
+
+The problem is that the ATTrackingManager only shows a dialog once. If the user refuses you will lose a significant amount of revenue.
+You should show a dialog asking the user to access Settings to enable tracking when the user denies the first time.
+
 ```swift
 import AppTrackingTransparency
 import AdSupport
@@ -69,6 +87,8 @@ class Tracking {
     }
 }
 ```
+
+![Screenshot](DialogTracking.png)
 
 Last call function in Main Viewcontroller
 ```swift
