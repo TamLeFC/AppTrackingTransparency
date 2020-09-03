@@ -97,7 +97,7 @@ override func viewDidLoad() {
     super.viewDidLoad()
     AdsTrackingUtils.requestIDFA(onUserDenied: {
             DispatchQueue.main.async {
-                Tracking.showDialogGoToTrackingSetting(parent: self)
+                AdsTrackingUtils.showDialogGoToTrackingSetting(parent: self)
             }
         })
 }
