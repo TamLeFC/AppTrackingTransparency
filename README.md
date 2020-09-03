@@ -101,7 +101,7 @@ override func viewDidLoad() {
 
 ## Enable SKAdNetwork to track conversions
 
-Google is able to attribute an app install even when IDFA is unavailable. Để sử dụng được chức năng này, you will need to update the SKAdNetworkItems key with an additional dictionary in your Info.plist.
+Google is able to attribute an app install even when IDFA is unavailable. To use this feature, you will need to update the SKAdNetworkItems key with an additional dictionary in your <b>Info.plist</b>.
 
 ```html
 <key>SKAdNetworkItems</key>
