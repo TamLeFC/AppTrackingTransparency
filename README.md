@@ -39,10 +39,10 @@ func requestIDFA() {
   })
 }
 ```
-![Screenshot](Tracking.png)
+![Screenshot](DialogTracking.png)
 
-The problem is that the ATTrackingManager only shows a dialog once. If the user refuses you will lose a significant amount of revenue.
-You should show a dialog asking the user to access Settings to enable tracking when the user denies the first time.
+The problem is that the ATTrackingManager only shows a dialog once. If the user refuses you will lose a significant amount of revenue. You should show a dialog asking the user to access Settings to enable tracking when the user denies the first time.<br/>
+And we have a complete class
 
 ```swift
 import AppTrackingTransparency
@@ -88,7 +88,7 @@ class Tracking {
 }
 ```
 
-![Screenshot](DialogTracking.png)
+![Screenshot](Tracking.png)
 
 Last call function in Main Viewcontroller
 ```swift
@@ -96,6 +96,20 @@ override func viewDidLoad() {
     super.viewDidLoad()
     Tracking.requestIDFA(parent: self)
 }
+```
+
+## Enable SKAdNetwork to track conversions
+
+Google is able to attribute an app install even when IDFA is unavailable. Để sử dụng được chức năng này, you will need to update the SKAdNetworkItems key with an additional dictionary in your Info.plist.
+
+```html
+<key>SKAdNetworkItems</key>
+  <array>
+    <dict>
+      <key>SKAdNetworkIdentifier</key>
+      <string>cstr6suwn9.skadnetwork</string>
+    </dict>
+  </array>
 ```
 
 ## License
