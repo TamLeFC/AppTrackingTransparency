@@ -76,16 +76,12 @@ class AdsTrackingUtils {
 }
 ```
 
-<img src="Tracking.png" width="300">
-
 Last call function in Main Viewcontroller
 ```swift
 override func viewDidLoad() {
     super.viewDidLoad()
     AdsTrackingUtils.requestIDFA(onUserDenied: {
-            DispatchQueue.main.async {
-                AdsTrackingUtils.showDialogGoToTrackingSetting(parent: self)
-            }
+            //to do something
         })
 }
 ```
