@@ -73,19 +73,6 @@ class AdsTrackingUtils {
             })
         }
     }
-    static func showDialogGoToTrackingSetting(parent: UIViewController) {
-        let title = Bundle.main.object(forInfoDictionaryKey: "NSUserTrackingUsageTitle") as? String ?? ""
-        let message = Bundle.main.object(forInfoDictionaryKey: "NSUserTrackingUsageDescription") as? String ?? ""
-        
-        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "Remind later", style: .default, handler: { (alertController) -> Void in
-            
-        }))
-        alertVC.addAction(UIAlertAction(title: "Go to setting", style: .default, handler: { (alertController) -> Void in
-            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
-        }))
-        parent.present(alertVC, animated: true, completion: nil)
-    }
 }
 ```
 
